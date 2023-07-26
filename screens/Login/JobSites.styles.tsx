@@ -15,14 +15,9 @@ const styles = StyleSheet.create({
     borderBottomWidth : 1,
     borderColor : "#B2B2B2"
   },
-  tableRowText: {
-    // textAlign: 'center',
-  },
   new: {
     backgroundColor : '#EE8A35',
-    // marginRight : 15,
     alignItems : 'center',
-    // borderRadius : 2
   },
   underJudgement : {
     backgroundColor : '#B3D99B',
@@ -35,6 +30,10 @@ const styles = StyleSheet.create({
   },
   tableContainer : {
     margin : 10
+  },
+  header : {
+    display : 'flex',
+    flexDirection: 'row'
   }
 });
 export default styles;

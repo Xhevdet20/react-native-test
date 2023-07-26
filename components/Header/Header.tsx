@@ -4,12 +4,16 @@ import {View, Text, TextInput, Image} from 'react-native';
 import {Button} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './Header.styles';
+import SearchBar from 'react-native-search-bar';
 
 interface Props {
   //   navigation: NavigationProp<ParamListBase>;
+  handleSearch: (text: string) => void;
+  searchText: string
 }
 
-function InfoCardLst(props: Props): JSX.Element {
+function Header(props: Props): JSX.Element {
+
   return (
     <View style={styles.container}>
       <Icon name={'navicon'} size={30} color="black" style={{...styles.icon}} />
@@ -18,7 +22,8 @@ function InfoCardLst(props: Props): JSX.Element {
           placeholder="Search ..."
           placeholderTextColor="rgba(35, 31, 32, 0.5)"
           style={styles.input}
-        //   secureTextEntry
+          onChangeText={props.handleSearch} 
+          value={props.searchText} 
         />
         <Icon
           name="search"
@@ -27,13 +32,15 @@ function InfoCardLst(props: Props): JSX.Element {
           style={styles.icon}
         />
       </View>
+      
       <Icon name="bell" size={20} color="black" style={styles.icon} />
       <Image
-            source={require('../../assets/profile.png')}
-            style={styles.profileIcon}
-          />
+        source={require('../../assets/profile.png')}
+        style={styles.profileIcon}
+      />
     </View>
+   
   );
 }
 
-export default InfoCardLst;
+export default Header;

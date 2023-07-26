@@ -7,38 +7,24 @@ import styles from './InfoCardList.styles';
 
 interface Props {
   //   navigation: NavigationProp<ParamListBase>;
+  statuses : any
 }
 
-function InfoCardLst(props: Props): JSX.Element {
-  let info = [
-    {
-      title: '14 On Road',
-      icon: 'truck',
-      color: '#F6CB52',
-    },
-    {
-      title: '2 Completed',
-      icon: 'truck',
-      color: '#7AC14D',
-    },
-    {
-      title: '14 On hold',
-      icon: 'truck',
-      color: '#E9C466',
-    },
-  ];
+function InfoCardList(props: Props): JSX.Element {
+
+  console.log(props.statuses)
 
   return (
     <View>
-      {info.map((info, index) => (
+      {props.statuses.map((info: any,index: number) => (
         <View
           style={{...styles.infoCard, backgroundColor: info.color}}
           key={index}>
-          <Text style={styles.text}>{info.title}</Text>
+          <Text style={styles.text}>{info.count} {info.type}</Text>
           <Icon
-            name={info.icon}
+            name={'truck'}
             size={30}
-            color="rgba(30, 52, 69, 0.1)"
+            color={info.color}
             style={{...styles.icon,color: 'white'}}
           />
         </View>
@@ -47,4 +33,4 @@ function InfoCardLst(props: Props): JSX.Element {
   );
 }
 
-export default InfoCardLst;
+export default InfoCardList;
