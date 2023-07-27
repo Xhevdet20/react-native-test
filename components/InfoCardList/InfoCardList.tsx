@@ -12,8 +12,6 @@ interface Props {
 
 function InfoCardList(props: Props): JSX.Element {
 
-  console.log(props.statuses)
-
   return (
     <View>
       {props.statuses.map((info: any,index: number) => (
